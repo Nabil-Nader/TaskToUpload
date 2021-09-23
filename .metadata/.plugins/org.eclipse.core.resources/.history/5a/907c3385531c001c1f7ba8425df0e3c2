@@ -1,0 +1,47 @@
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.util.Date;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+//		 initialize LocalDatetime
+		LocalDateTime f = LocalDateTime.now();
+		
+		 
+		
+		System.out.println(f);
+		
+		Date date = new Date();
+		
+		long time = date.getTime();
+	 
+		
+		Timestamp ts = new Timestamp(time);
+		System.out.println(ts);
+ 	}
+	
+	
+	/*
+	 * Description: Method convert the  current timestamp to UTC DateTime.
+	 */
+	
+	public static void showeUtcDate(LocalDate timeStamp) {
+		
+	}
+	
+	/*
+	 * Description: Method convert time zone from EGY to UTC
+	 */
+	
+	public static void converDateTime(String zone) {
+		LocalDateTime ldt = LocalDateTime.now();
+ 
+		ZonedDateTime zdt = ZonedDateTime.of(ldt, "Egypt");
+	}
+
+}

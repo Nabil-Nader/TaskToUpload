@@ -1,0 +1,56 @@
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+//		normal static array if we won't dynamic we ask the user
+		int [] arr =  {33,43,42,1,0};
+
+		System.out.println("The old array:"+arr);
+		
+//		remove the third element
+		
+	arr = 	removeArrayitem(3, arr);
+	
+	System.out.println("after removing");
+	
+	System.out.println("The new Array :"+arr);
+	}
+	
+	
+	/*
+	 * Function to remove an Index in array 
+	 *  Parameter:  index => which index to remove from array 
+	 *  			arr => array it self
+	 *  
+	 *  Description: we copy the array element except the position where we escape
+	 */
+	
+	public static int[] removeArrayitem(int index , int [] arr ) {
+		
+		int[] newArray = new  int [arr.length -1];
+		
+		for(int i = 0, j =0; i <arr.length ; i++) {
+			
+			if(i == index) {
+				System.out.println("Removing the "+ index+" elment from the array");
+				continue ;
+			}
+			
+//			 even if the first index was the element to remove we still have j as 0
+//			as we increment it after we finish 
+			
+			newArray[j] = arr[i];
+			j++;
+			
+			
+		}
+		
+		return newArray;
+		
+		 	
+		
+	}
+
+}

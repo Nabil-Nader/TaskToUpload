@@ -1,0 +1,22 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	/*
+	 * 
+	 */
+	
+	public static void mintuToYear(long mint) {
+		long totalDays =   (mint * 24) ;
+		int years = (int) (totalDays / 365);
+		int days = (int) (totalDays % 365) ;
+		
+		System.out.println("total days"+totalDays+" equal:"+years+" year and "+days+" days");
+		
+	}
+
+}

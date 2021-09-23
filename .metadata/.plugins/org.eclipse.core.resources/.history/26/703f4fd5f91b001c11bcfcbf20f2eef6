@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static final Scanner scann = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.print("Entet a number:");
+		int n1 = scann.nextInt();
+		
+		System.out.print("Entet a second  number:");
+		int n2 = scann.nextInt();
+		
+		preformCalculation(n1,n2);
+		
+	}
+	
+	
+	public static void preformCalculation(int num1 , int num2) {
+		System.out.print("the Sum of the Two numbe:");
+		System.out.println(num1+" + "+num2 +" = "+(num1+num2));
+		
+		System.out.print("the difference of the Two numbe:");
+		System.out.println(num1+" - "+num2 +" = "+(num1-num2));
+		
+		int product = num1 * num2 ;
+		
+		System.out.print("the product of the Two numbe:");
+		System.out.println(num1+" * "+num2 +" = "+product);
+		
+		if(num2== 0) {
+			System.out.println("Can not divide by Zero");
+		}else {
+			int division = num1/num2;
+			System.out.print("the product of the Two numbe:");
+			System.out.println(num1+" / "+num2 +" = "+division);
+		}
+	
+	}
+
+}

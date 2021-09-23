@@ -1,0 +1,107 @@
+import java.util.Arrays;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//		normal static array if we won't dynamic we ask the user
+		int [] arr =  {33,43,42,1,0,20,12,5};
+
+		//		it is much easy to print array using this Array method the hard one is to print each index
+		System.out.println("The old array:"+Arrays.toString(arr));
+
+		//		remove the third element
+
+		//		arr = 	removeArrayitem(3, arr);
+
+		//		System.out.println("after removing");
+
+		arr = updateArray(3,arr);
+
+		printArray(arr);
+	}
+
+	/*
+	 * Method: to print array
+	 */
+
+	public static void printArray(int[] arr) {
+		System.out.print("The array element:[");
+		for(int index = 0; index <arr.length; index++) {
+			if(index != arr.length -1) {
+				System.out.print(arr[index] + ", ");
+			}
+			else {
+				System.out.print(arr[index]);
+			}
+		}
+
+		System.out.println("]");
+	}
+
+
+	/*
+	 * Description:Method to update Array with given number
+	 * 
+	 * Parameter: updateNumber => update Number 
+	 * 			  arr => array itself
+	 * 
+	 * return type: int updated array
+	 */
+
+	public static int[] updateArray(int updatedNum , int [] arr) {
+
+		int [] newArray = new int[arr.length +1];
+
+		for(int i = 0; i <arr.length  ; i++) {
+			//	 even if the first index was the element to remove we still have j as 0
+			//	as we increment it after we finish 
+
+			newArray[i] = arr[i];
+		}
+		newArray[arr.length] = updatedNum;
+
+		return newArray;
+	}
+
+
+	/*
+	 * Description:Method  to remove an Index in array 
+	 * 
+	 *  Parameter:  index => which index to remove from array 
+	 *  			arr => array itself
+	 *  
+	 *   return type: int updated array
+	 */
+
+	public static int[] removeArrayitem(int index , int [] arr ) {
+
+		int[] newArray = new  int [arr.length -1];
+
+		for(int i = 0, j =0; i <arr.length ; i++) {
+
+			if(i == index) {
+				System.out.println("Removing the "+ index+" elment from the array");
+				continue ;
+			}
+
+			//	even if the first index was the element to remove we still have j as 0
+			//	as we increment it after we finish 
+
+			newArray[j] = arr[i];
+			j++;
+
+
+		}
+
+		return newArray;
+
+
+
+	}
+
+
+
+
+}

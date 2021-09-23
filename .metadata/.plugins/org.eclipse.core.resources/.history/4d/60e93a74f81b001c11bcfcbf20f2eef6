@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static final Scanner scann = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Entet a number:");
+		int n1 = scann.nextInt();
+		
+		System.out.println("Entet a number:");
+		int n2 = scann.nextInt();
+		
+
+		
+	}
+	
+	
+	public static void preformCalculation(int num1 , int num2) {
+		System.out.println();
+	}
+
+}

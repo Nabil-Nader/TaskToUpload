@@ -1,0 +1,19 @@
+import java.time.LocalDate;
+
+public class Date {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	/*
+	 * Description: Method convert the  current timestamp to UTC DateTime.
+	 */
+	
+	public static void showeUtcDate(LocalDate timeStamp) {
+		
+	}
+
+}

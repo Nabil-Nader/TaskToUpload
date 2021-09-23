@@ -1,0 +1,77 @@
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
+public class Main {
+	
+	public static final String DATE_FORMATE = "MMM dd yyy hh:mm:ss a z";
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+//		 initialize LocalDatetime
+		LocalDateTime f = LocalDateTime.now();
+		
+		DateTimeFormatter df = DateTimeFormatter.ofPattern(DATE_FORMATE);
+		System.out.println(f.format(df));
+		 
+		
+//		System.out.println(f);
+		
+		Date date = new Date();
+		
+		long time = date.getTime();
+	 
+		
+		Timestamp ts = new Timestamp(time);
+//		System.out.println(ts);
+		
+//		converDateTime(" ");
+		zone();
+ 	}
+	
+	
+	/*
+	 * Description: Method convert the  current timestamp to UTC DateTime.
+	 */
+	
+	public static void showeUtcDate(LocalDate timeStamp) {
+		
+	}
+	
+	/*
+	 * Description: Method convert time zone from EGY to UTC
+	 */
+	
+	public static void converDateTime(String zone) {
+		LocalDateTime ldt = LocalDateTime.now();
+		System.out.println(ldt);
+ 
+		ZonedDateTime zdt = ZonedDateTime.of(ldt, ZoneId.of("Egypt"));
+		System.out.println(zdt);
+		
+		zdt = ZonedDateTime.of(ldt, ZoneId.of("Asia/Omsk"));
+		DateTimeFormatter df = DateTimeFormatter.ofPattern(DATE_FORMATE);
+		
+		
+		System.out.println(zdt.format(df));
+	}
+	
+	public static void zone() {
+		    ZoneId fromTimeZone = ZoneId.of("UTC");    //Source timezone
+	        ZoneId toTimeZone = ZoneId.of("America/New_York");  //Target timezone
+	         
+	        LocalDateTime today = LocalDateTime.now();          //Current time
+	
+	        ZonedDateTime currentISTime = today.atZone(fromTimeZone);      
+	        
+	        ZonedDateTime currentETime = currentISTime.withZoneSameInstant(toTimeZone);
+	System.out.println(currentETime);
+	
+	}
+
+}

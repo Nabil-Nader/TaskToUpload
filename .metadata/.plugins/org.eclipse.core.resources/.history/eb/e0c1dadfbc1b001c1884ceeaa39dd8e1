@@ -1,0 +1,24 @@
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	/*
+	 * Function to remove an Index in array 
+	 *  Parameter:  index => which index to remove from array 
+	 *  			arr => array it self
+	 */
+	
+	public static void removeArrayitem(int index , int [] arr ) {
+		
+		
+		
+		 	
+		
+	}
+
+}

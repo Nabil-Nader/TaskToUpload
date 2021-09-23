@@ -1,0 +1,29 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+//		 initialize LocalDatetime
+		LocalDateTime f = LocalDateTime.now();
+		
+		System.out.println(f.getDayOfMonth());
+		
+		System.out.println(f);
+		
+		Main date = new Main();
+		
+	}
+	
+	
+	/*
+	 * Description: Method convert the  current timestamp to UTC DateTime.
+	 */
+	
+	public static void showeUtcDate(LocalDate timeStamp) {
+		
+	}
+
+}
