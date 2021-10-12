@@ -9,32 +9,30 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "api/v1/students")
+@RequestMapping(path = "api/v2/students")
 public class StudentController {
 
     @Autowired
-    private final StudentService studentService ;
-
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
-    }
+    private StudentService studentService ;
 
     @GetMapping("/all")
     public ResponseEntity< List<Student>> getAllStudents(){
-        List<Student> students = studentService.getStudents();
+        List<Student> students = studentService.getAllStudents();
         return new ResponseEntity<>(students, HttpStatus.OK) ;
     }
 
     @GetMapping("find/{id}")
     public ResponseEntity <Student>  getStudent(@PathVariable("id") Long id){
-        Student theStudent = studentService.getStudentById(id);
+        Optional<Student> theStudent = studentService.getStudent(id);
 
-        if (theStudent == null){
-            throw new UserNotFoundException("Student id not found :"+id);
-        }
-        return new ResponseEntity<>(theStudent, HttpStatus.OK) ;
+        if (theStudent.isPresent()){
+            return ResponseEntity.unprocessableEntity().build();
+        } else {
+        	 return new ResponseEntity<>(HttpStatus.NOT_FOUND) ;
+        }     
     }
 
     @PostMapping("/add")
@@ -45,27 +43,21 @@ public class StudentController {
     }
     @PutMapping("/update")
     public ResponseEntity<Student> updateStudent(@RequestBody Student newStudent){
-        Student theStudent = studentService.saveStudent(newStudent);
-        return new ResponseEntity<>(theStudent, HttpStatus.OK) ;
+
+
+       Student student = studentService.saveStudent(newStudent);
+        return new ResponseEntity<>(student, HttpStatus.OK) ;
     }
 
     @DeleteMapping("delete/{id}")
     public ResponseEntity<?> deleteStudentById(@PathVariable("id") Long id){
-        Student tempStudent = studentService.getStudentById(id);
+        Optional<Student> tempStudent = studentService.getStudent(id);
 
         if (tempStudent == null) {
             throw new UserNotFoundException("Student id not found - " + id);
         }
-
-        studentService.deleteStudent(id);
+     studentService.deleteStudent(id);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-
-
-
-
-
-
 }
