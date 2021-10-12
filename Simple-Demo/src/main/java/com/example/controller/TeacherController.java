@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Set;
 
@@ -38,14 +39,14 @@ public class TeacherController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Teacher> addTeacher(@RequestBody Teacher newTeacher){
+    public ResponseEntity<Teacher> addTeacher(@Valid@RequestBody Teacher newTeacher){
 
         Teacher saveTeacher = teacherService.saveTeacher(newTeacher);
 
         return new ResponseEntity<>(saveTeacher, HttpStatus.CREATED) ;
     }
     @PutMapping("/update")
-    public ResponseEntity<Teacher> updateTeacher(@RequestBody Teacher teacher){
+    public ResponseEntity<Teacher> updateTeacher(@Valid @RequestBody Teacher teacher){
         Teacher updateTeacher = teacherService.saveTeacher(teacher);
         return new ResponseEntity<>(updateTeacher, HttpStatus.OK) ;
     }
@@ -68,7 +69,7 @@ public class TeacherController {
     	
         Teacher teacher = teacherService.getTeacherById(id);
         if (teacher == null) {
-            throw new UserNotFoundException("Teacher by this - " + id +" not found");
+            throw new UserNotFoundException("Teacher id - " + id +" not found");
         }else {
 
             Set<Student> students = teacher.getStudents();
