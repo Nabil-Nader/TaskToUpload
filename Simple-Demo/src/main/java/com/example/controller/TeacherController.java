@@ -67,9 +67,16 @@ public class TeacherController {
     public ResponseEntity<Set<Student>> showTeacherStudents(@PathVariable("id") Long id){
     	
         Teacher teacher = teacherService.getTeacherById(id);
-        Set<Student> students = teacher.getStudents();
+        if (teacher == null) {
+            throw new UserNotFoundException("Teacher by this - " + id +" not found");
+        }else {
 
-        return new ResponseEntity<>(students,HttpStatus.OK);
+            Set<Student> students = teacher.getStudents();
+
+            return new ResponseEntity<>(students, HttpStatus.OK);
+        }
+
+
     }
 
 

@@ -44,4 +44,10 @@ public class StudentServiceImpl implements StudentService {
 	public Student findStudentById(Long id) {
 		return studentRepository.findStudentById(id);
 	}
+
+	@Override
+	public void updateStudent(Long id) {
+		Student student = studentRepository.findStudentById(id);
+
+	}
 }
