@@ -3,6 +3,7 @@ package com.example.database;
 import java.io.Serializable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,9 +23,11 @@ public class Student implements Serializable {
 	private Long id;
 
 	@Column(name = "name")
+	@NotBlank
 	private String name;
 
 	@Column(name = "jobTitle")
+	@NotBlank
 	private String jobTitle;
 
 	@Column(name = "teacher_id")
